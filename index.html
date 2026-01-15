@@ -3,21 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tarot de Marseille – Consultations</title>
+  <title>Marion Namouric — Tarot de Marseille</title>
 
   <!-- Page volontairement non indexée -->
   <meta name="robots" content="noindex, nofollow" />
 
   <style>
     :root{
-      --bg:#07060a;
-      --card:#0f0d16;
-      --text:#f4f1ff;
-      --muted:#c8c2df;
-      --line:rgba(244,241,255,.10);
-      --gold:#d6b15e;
-      --gold2:#f0d48a;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --bg: #fbf7f0;
+      --paper: #fffdf8;
+      --ink: #2a2622;
+      --muted: #6b6258;
+      --line: rgba(42, 38, 34, .10);
+      --gold: #b48b3a;
+      --shadow: 0 18px 55px rgba(25, 18, 10, .10);
       --radius: 22px;
       --max: 1040px;
     }
@@ -26,170 +25,160 @@
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
       background:
-        radial-gradient(900px 420px at 20% 0%, rgba(214,177,94,.18), transparent 55%),
-        radial-gradient(700px 360px at 85% 20%, rgba(240,212,138,.12), transparent 52%),
-        radial-gradient(900px 480px at 60% 100%, rgba(130,90,255,.10), transparent 55%),
-        linear-gradient(180deg, #05040a, #090815 55%, #05040a);
-      overflow-x:hidden;
+        radial-gradient(900px 520px at 15% 5%, rgba(180,139,58,.14), transparent 55%),
+        radial-gradient(760px 420px at 85% 20%, rgba(210,168,92,.12), transparent 55%),
+        linear-gradient(180deg, #fbf7f0 0%, #fffaf2 50%, #fbf7f0 100%);
     }
 
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 72px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 70px;}
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 16px; border:1px solid var(--line);
-      border-radius: 999px; background: rgba(15,13,22,.55);
+      position: sticky; top: 12px; z-index: 10;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,253,248,.82);
       backdrop-filter: blur(10px);
-      position: sticky; top: 12px; z-index: 30;
+      box-shadow: 0 8px 30px rgba(25,18,10,.06);
     }
     .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
-    .sigil{
-      width:38px; height:38px; border-radius: 12px;
+    .mark{
+      width:38px; height:38px; border-radius: 14px;
       display:grid; place-items:center;
-      background: linear-gradient(135deg, rgba(214,177,94,.25), rgba(240,212,138,.08));
-      border: 1px solid rgba(214,177,94,.35);
-      box-shadow: 0 10px 28px rgba(214,177,94,.10);
+      border:1px solid rgba(180,139,58,.35);
+      background: linear-gradient(135deg, rgba(180,139,58,.18), rgba(255,255,255,.6));
+      box-shadow: 0 10px 26px rgba(180,139,58,.10);
+      font-size: 16px;
     }
-    .brand b{letter-spacing:.3px}
+    .brand b{letter-spacing:.2px}
     .brand small{display:block; color:var(--muted); font-size:12px; margin-top:2px}
 
     .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     .pill{
-      text-decoration:none; font-size:13px; padding:10px 12px;
+      text-decoration:none; font-size:13px; padding:9px 12px;
       border:1px solid var(--line); border-radius:999px;
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.6);
     }
-    .pill:hover{border-color: rgba(214,177,94,.35);}
+    .pill:hover{border-color: rgba(180,139,58,.35);}
 
-    .hero{padding:46px 6px 18px;}
+    .hero{padding:42px 6px 14px;}
     .grid{
-      display:grid; grid-template-columns: 1.2fr .8fr;
-      gap:18px; align-items:stretch;
+      display:grid; grid-template-columns: 1.15fr .85fr;
+      gap:16px; align-items:stretch;
     }
-    @media (max-width: 920px){ .grid{grid-template-columns: 1fr; } .hero{padding-top:28px;} }
+    @media (max-width: 920px){ .grid{grid-template-columns: 1fr;} .hero{padding-top:26px;} }
 
     .card{
       border:1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(15,13,22,.62);
-      backdrop-filter: blur(12px);
+      background: rgba(255,253,248,.86);
       box-shadow: var(--shadow);
     }
     .card.pad{padding:22px}
     .tag{
       display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius: 999px;
-      border:1px solid rgba(214,177,94,.35);
-      background: linear-gradient(135deg, rgba(214,177,94,.16), rgba(255,255,255,.02));
-      color: var(--gold2);
-      font-size: 13px; letter-spacing:.2px;
+      padding:7px 12px; border-radius: 999px;
+      border:1px solid rgba(180,139,58,.35);
+      background: rgba(180,139,58,.10);
+      color: #7a5b1b;
+      font-size: 13px;
     }
     h1{
       margin:14px 0 10px;
       font-size: clamp(30px, 4vw, 46px);
       line-height:1.08;
       letter-spacing: .2px;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
     }
-    .lead{color:var(--muted); font-size: 16px; line-height:1.6; margin:0 0 16px;}
+    .lead{color:var(--muted); font-size: 16px; line-height:1.75; margin:0 0 16px;}
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:12px 14px; border-radius: 14px;
       border:1px solid var(--line);
-      text-decoration:none; font-weight:600;
-      background: rgba(255,255,255,.04);
+      text-decoration:none; font-weight:700;
+      background: rgba(255,255,255,.7);
     }
     .btn.primary{
-      border-color: rgba(214,177,94,.55);
-      background: linear-gradient(135deg, rgba(214,177,94,.26), rgba(255,255,255,.03));
-      box-shadow: 0 16px 45px rgba(214,177,94,.12);
+      border-color: rgba(180,139,58,.55);
+      background: linear-gradient(135deg, rgba(180,139,58,.20), rgba(255,255,255,.85));
+      box-shadow: 0 16px 45px rgba(180,139,58,.10);
     }
     .btn:hover{transform: translateY(-1px); transition: transform .15s ease}
     .mini{font-size:12px; color:var(--muted); margin-top:10px}
 
-    .side{
-      display:grid; gap:12px;
-    }
-    .stat{
-      padding:16px;
-      display:grid; gap:6px;
-    }
-    .stat b{font-size:18px}
-    .stat span{color:var(--muted); font-size:13px; line-height:1.4}
+    .side{display:grid; gap:12px;}
+    .stat{padding:16px; display:grid; gap:6px;}
+    .stat b{font-size:16px}
+    .stat span{color:var(--muted); font-size:13px; line-height:1.5}
 
-    .section{padding:22px 6px 0}
+    .section{padding:20px 6px 0}
     .section h2{
       font-size: clamp(20px, 2.8vw, 28px);
       margin:0 0 12px;
       letter-spacing:.2px;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
     }
-    .section p{margin:0 0 12px; color:var(--muted); line-height:1.7}
+    .section p{margin:0 0 12px; color:var(--muted); line-height:1.85}
 
     .cols3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
     @media (max-width: 920px){ .cols3{grid-template-columns: 1fr;} }
 
     .box{padding:18px}
     .box h3{margin:0 0 8px; font-size:16px}
-    .box p{margin:0; color:var(--muted); font-size:14px; line-height:1.65}
+    .box p{margin:0; color:var(--muted); font-size:14px; line-height:1.75}
 
-    .pricing{
-      display:grid; grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
+    .sep{height:1px; background: var(--line); margin:18px 0}
+
+    .pricing{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
     @media (max-width: 920px){ .pricing{grid-template-columns: 1fr;} }
 
     .priceTop{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
     .price{
       font-size:30px; letter-spacing:.2px;
-      background: linear-gradient(135deg, var(--gold2), var(--gold));
-      -webkit-background-clip:text; background-clip:text; color: transparent;
+      color: var(--gold);
       margin:0;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
     }
-    ul{margin:12px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.7}
+    ul{margin:12px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.85}
     li{margin:6px 0}
 
     details{
       border:1px solid var(--line);
       border-radius: 16px;
-      background: rgba(255,255,255,.02);
+      background: rgba(255,255,255,.65);
       padding: 14px 14px;
     }
     details + details{margin-top:10px}
-    summary{
-      cursor:pointer;
-      font-weight:700;
-      list-style:none;
-    }
+    summary{cursor:pointer; font-weight:800; list-style:none;}
     summary::-webkit-details-marker{display:none}
     details p{margin-top:10px}
 
     .footer{
-      margin-top:28px;
+      margin-top:24px;
       padding:18px;
       border:1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(15,13,22,.50);
+      background: rgba(255,253,248,.9);
       color: var(--muted);
       font-size: 12px;
-      line-height:1.6;
+      line-height:1.75;
     }
 
-    .sep{height:1px; background: var(--line); margin:18px 0}
-    .muted{color:var(--muted)}
-    .gold{color:var(--gold2)}
     .kbd{
       display:inline-block;
       padding:2px 8px;
       border:1px solid var(--line);
-      border-bottom-color: rgba(255,255,255,.06);
       border-radius: 999px;
-      background: rgba(255,255,255,.02);
-      color: var(--text);
+      background: rgba(255,255,255,.7);
+      color: var(--ink);
       font-size: 12px;
       margin:0 2px;
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -198,16 +187,16 @@
   <div class="wrap">
     <header class="nav" aria-label="Navigation">
       <a class="brand" href="#top">
-        <span class="sigil" aria-hidden="true">✦</span>
+        <span class="mark" aria-hidden="true">✶</span>
         <span>
-          <b><!-- TODO: Prénom NOM -->Marion N.</b>
-          <small>Tarot de Marseille • Consultations</small>
+          <b>Marion Namouric</b>
+          <small>Tarot de Marseille • séances individuelles</small>
         </span>
       </a>
       <nav class="navlinks">
-        <a class="pill" href="#offre">Offre</a>
+        <a class="pill" href="#approche">Mon approche</a>
+        <a class="pill" href="#seances">Séances</a>
         <a class="pill" href="#tarifs">Tarifs</a>
-        <a class="pill" href="#deroule">Déroulé</a>
         <a class="pill" href="#faq">FAQ</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
@@ -217,69 +206,102 @@
       <section class="hero">
         <div class="grid">
           <div class="card pad">
-            <span class="tag">Tarot de Marseille — lecture symbolique & intuitive</span>
-            <h1>Un éclairage clair, sans détour, à partir de votre question.</h1>
+            <span class="tag">Tarot de Marseille — douceur, clarté, choix</span>
+            <h1>Je t’aide à y voir plus clair, quand tout semble flou.</h1>
             <p class="lead">
-              Une séance de Tarot de Marseille pour explorer une situation, comprendre une dynamique,
-              et dégager des pistes concrètes. Approche centrée sur le sens, les choix et le cheminement.
+              Le Tarot de Marseille est pour moi un miroir symbolique : il met en lumière ce qui travaille en profondeur,
+              ce qui bloque, ce qui appelle un mouvement. Ensemble, on explore ta question, puis on revient au concret :
+              <em>qu’est-ce que tu peux faire maintenant ?</em>
             </p>
 
             <div class="ctaRow">
-              <a class="btn primary" href="#contact">Réserver par message</a>
+              <a class="btn primary" href="#contact">Me contacter</a>
               <a class="btn" href="#tarifs">Voir les tarifs</a>
             </div>
 
             <p class="mini">
-              Page privée (non référencée). Partage possible via QR code ou lien direct.
+              Page privée (non référencée). Lien partageable par QR code ou message.
             </p>
           </div>
 
           <aside class="side">
             <div class="card stat">
               <b>Durée</b>
-              <span>45 min à 1 h, en visio ou à distance (selon votre organisation).</span>
+              <span>45 min à 1 h • en visio / à distance (selon ton choix).</span>
             </div>
             <div class="card stat">
-              <b>Tarif découverte</b>
-              <span><span class="gold">20 €</span> avant certification (période de lancement).</span>
+              <b>Tarif découverte (lancement)</b>
+              <span><b>20 €</b> la séance • avant certification.</span>
             </div>
             <div class="card stat">
               <b>Après certification</b>
-              <span>Tarif définitif prévu : <span class="gold">60–70 €</span> / séance (selon format).</span>
+              <span>Tarif définitif prévu : <b>60–70 €</b> / séance (selon format).</span>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="section" id="offre">
+      <section class="section" id="approche">
         <div class="card pad">
-          <h2>L’offre Tarot de Marseille</h2>
+          <h2>Mon approche</h2>
           <p>
-            La séance part d’une question simple : une situation, un choix, un blocage, une relation,
-            un projet. Le tirage aide à mettre en lumière les forces en présence, les tensions,
-            et les leviers d’action possibles.
+            Je travaille avec le Tarot de Marseille comme un langage : des images, des symboles, des dynamiques.
+            Je ne cherche pas la “bonne réponse” : je cherche le sens, le fil, la respiration.
           </p>
+          <p>
+            Une séance, c’est un espace doux mais direct : on pose ta question, on lit le tirage avec attention,
+            et on fait émerger une synthèse claire — pour t’aider à avancer.
+          </p>
+
+          <div class="sep"></div>
 
           <div class="cols3">
             <div class="box card">
-              <h3>Pour clarifier</h3>
-              <p>Comprendre ce qui se joue et ce qui influence la situation (contexte, rythmes, ressorts).</p>
+              <h3>Clarifier</h3>
+              <p>Comprendre ce qui se joue, ce qui influence, ce qui pèse… et ce qui soutient.</p>
             </div>
             <div class="box card">
-              <h3>Pour décider</h3>
-              <p>Comparer des options, explorer les conséquences possibles, identifier des choix plus alignés.</p>
+              <h3>Choisir</h3>
+              <p>Explorer des options, leurs impacts possibles, et retrouver une direction plus juste.</p>
             </div>
             <div class="box card">
-              <h3>Pour avancer</h3>
-              <p>Mettre en évidence des pistes concrètes et un plan simple : “que faire maintenant ?”.</p>
+              <h3>Avancer</h3>
+              <p>Revenir au concret : une piste simple, un pas à faire, une action à essayer.</p>
             </div>
           </div>
 
           <div class="sep"></div>
 
-          <p class="muted">
+          <p>
             <b>Cadre :</b> Les consultations proposées s’inscrivent dans une démarche symbolique et de développement personnel.
             Elles ne se substituent pas à un avis médical, juridique ou financier.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="seances">
+        <div class="card pad">
+          <h2>Comment se déroule une séance</h2>
+
+          <div class="cols3">
+            <div class="box card">
+              <h3>1) Ta question</h3>
+              <p>Une phrase simple. Si tu veux, je t’aide à la formuler avant la séance (par message).</p>
+            </div>
+            <div class="box card">
+              <h3>2) Le tirage</h3>
+              <p>Je lis le tirage de façon structurée : contexte, dynamiques, tensions, appuis, voies possibles.</p>
+            </div>
+            <div class="box card">
+              <h3>3) La synthèse</h3>
+              <p>On conclut avec une synthèse claire : ce qui ressort et ce que tu peux mettre en mouvement.</p>
+            </div>
+          </div>
+
+          <div class="sep"></div>
+
+          <p class="mini">
+            Pour que ce soit fluide : viens avec <span class="kbd">une question principale</span> (et éventuellement une sous-question).
           </p>
         </div>
       </section>
@@ -288,7 +310,8 @@
         <div class="card pad">
           <h2>Tarifs</h2>
           <p>
-            Période de lancement avant certification : tarif accessible, pour constituer une clientèle et recueillir des retours.
+            Je propose actuellement un tarif de lancement, avant certification, pour démarrer dans de bonnes conditions
+            et construire une pratique solide.
           </p>
 
           <div class="pricing">
@@ -296,61 +319,35 @@
               <div class="priceTop">
                 <div>
                   <h3>Tarif découverte (avant certification)</h3>
-                  <p class="muted">Séance 45 min – 1 h</p>
+                  <p>45 min à 1 h</p>
                 </div>
                 <p class="price">20 €</p>
               </div>
               <ul>
                 <li>1 question principale (et 1 sous-question si pertinent)</li>
                 <li>Lecture + synthèse</li>
-                <li>Compte-rendu court possible (option, par message)</li>
+                <li>Compte-rendu court possible par message (option)</li>
               </ul>
             </div>
 
             <div class="card box">
               <div class="priceTop">
                 <div>
-                  <h3>Tarif après certification</h3>
-                  <p class="muted">À confirmer selon format</p>
+                  <h3>Après certification</h3>
+                  <p>Tarif définitif communiqué dès obtention du certificat</p>
                 </div>
                 <p class="price">60–70 €</p>
               </div>
               <ul>
-                <li>Tarif définitif communiqué dès obtention du certificat</li>
-                <li>Possibilité d’évolutions de format (ex. séance approfondie)</li>
+                <li>Selon format (séance standard / approfondie)</li>
+                <li>Évolution possible de l’accompagnement</li>
                 <li>Astrologie : ouverture possible plus tard (non proposée ici pour l’instant)</li>
               </ul>
             </div>
           </div>
 
           <p class="mini">
-            Paiement : <!-- TODO: préciser (virement / PayPal / espèces / Lydia etc.) -->à préciser.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" id="deroule">
-        <div class="card pad">
-          <h2>Déroulé d’une séance</h2>
-          <div class="cols3">
-            <div class="box card">
-              <h3>1) Votre question</h3>
-              <p>Une formulation simple. Exemple : “Que puis-je comprendre / faire dans cette situation ?”.</p>
-            </div>
-            <div class="box card">
-              <h3>2) Le tirage</h3>
-              <p>Lecture structurée, centrée sur les axes utiles : contexte, dynamique, obstacles, leviers, piste d’action.</p>
-            </div>
-            <div class="box card">
-              <h3>3) Synthèse</h3>
-              <p>On conclut par une synthèse claire : ce qui ressort, ce que vous pouvez tester, ce que vous pouvez éviter.</p>
-            </div>
-          </div>
-
-          <div class="sep"></div>
-
-          <p class="muted">
-            Astuce : préparez votre question en une phrase. Si besoin, je vous aide à la formuler (message avant séance).
+            Paiement : <b><!-- TODO -->à préciser</b> (virement / PayPal / espèces…).
           </p>
         </div>
       </section>
@@ -362,32 +359,31 @@
           <details>
             <summary>Est-ce que tu “prédis l’avenir” ?</summary>
             <p>
-              Non. La démarche est symbolique : on explore des tendances, des dynamiques et des options.
-              L’objectif est d’éclairer et d’aider à décider, sans promesse de résultat.
+              Non. Je travaille avec le Tarot comme un outil symbolique : il éclaire des dynamiques, des tendances,
+              et surtout tes choix possibles. Je n’annonce pas de certitudes et je ne promets pas de résultat.
             </p>
           </details>
 
           <details>
             <summary>Quelles questions sont adaptées ?</summary>
             <p>
-              Décisions, relations, travail/projets, blocages, compréhension d’une situation. Si la question touche
-              au médical, au juridique ou au financier, la séance ne remplace pas un professionnel : on peut rester
-              sur l’axe “ressenti / clarification / choix personnels”.
+              Décisions, relations, travail/projets, blocages, compréhension d’une situation.
+              Si ta question touche au médical, au juridique ou au financier, la séance ne remplace pas un professionnel :
+              on peut rester sur l’axe “clarification / choix personnels / mise en mouvement”.
             </p>
           </details>
 
           <details>
             <summary>À distance, ça fonctionne ?</summary>
             <p>
-              Oui, si vous êtes au calme. Visio ou appel : l’essentiel est votre question et le temps d’échange.
+              Oui. L’essentiel, c’est un moment calme et ta présence à toi. Visio ou appel : on choisit ce qui te convient.
             </p>
           </details>
 
           <details>
             <summary>Et l’astrologie ?</summary>
             <p>
-              Pour l’instant, cette page présente uniquement le Tarot de Marseille.
-              Une évolution vers l’astrologie est possible plus tard.
+              Pour l’instant, cette page présente uniquement le Tarot de Marseille. Une évolution vers l’astrologie est possible plus tard.
             </p>
           </details>
         </div>
@@ -396,28 +392,31 @@
       <section class="section" id="contact">
         <div class="card pad">
           <h2>Contact</h2>
-          <p>Pour demander un créneau, envoyez un message avec <span class="kbd">votre prénom</span>, <span class="kbd">votre question</span> et <span class="kbd">vos disponibilités</span>.</p>
+          <p>
+            Pour me demander un créneau, envoie-moi un message avec
+            <span class="kbd">ton prénom</span>, <span class="kbd">ta question</span> et <span class="kbd">tes disponibilités</span>.
+          </p>
 
           <div class="cols3">
             <div class="box card">
               <h3>Email</h3>
               <p>
                 <a href="mailto:TODO@email.fr">TODO@email.fr</a><br />
-                <span class="muted">Réponse sous 24–48 h (selon disponibilité)</span>
+                <span style="color:var(--muted); font-size:12px;">Réponse sous 24–48 h selon disponibilité</span>
               </p>
             </div>
             <div class="box card">
               <h3>Téléphone</h3>
               <p>
                 <a href="tel:+33TODO">+33 TODO</a><br />
-                <span class="muted">SMS/WhatsApp conseillé</span>
+                <span style="color:var(--muted); font-size:12px;">SMS / WhatsApp conseillé</span>
               </p>
             </div>
             <div class="box card">
-              <h3>Zone / format</h3>
+              <h3>Format</h3>
               <p>
                 Visio / à distance.<br />
-                <span class="muted">Présentiel : uniquement si vous le proposez plus tard.</span>
+                <span style="color:var(--muted); font-size:12px;">Présentiel : uniquement si tu le proposes plus tard.</span>
               </p>
             </div>
           </div>
@@ -425,16 +424,15 @@
           <div class="sep"></div>
 
           <p class="mini">
-            <b>Identité :</b> <!-- TODO: nom/prénom complet, statut pro si vous voulez -->à compléter.<br />
-            <b>Mentions :</b> Cette page ne collecte pas de données (pas de cookies).  
+            Cette page ne collecte pas de données (pas de cookies).
           </p>
         </div>
 
         <div class="footer">
           <b>Cadre & responsabilité</b><br />
           Les consultations proposées s’inscrivent dans une démarche symbolique et de développement personnel.
-          Elles ne constituent en aucun cas une consultation médicale, juridique ou financière, et ne s’y substituent pas.
-          En cas de difficulté de santé, d’urgence ou de situation grave, contactez un professionnel compétent.
+          Elles ne constituent en aucun cas une consultation médicale, juridique ou financière et ne s’y substituent pas.
+          En cas de difficulté de santé, d’urgence ou de situation grave, contacte un professionnel compétent.
         </div>
       </section>
     </main>
